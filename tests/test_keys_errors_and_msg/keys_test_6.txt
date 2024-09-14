@@ -1,0 +1,32 @@
+# This file is for rcvd_headers_msg and no_keys_msg
+# There are correct headers, but no keys for each of them
+
+
+# If the string starts with '#' it skips while file reading.
+# Строки, начинающиеся символом '#', пропускаются при считывании файла.
+
+# Empty string '' or newline string '\n' are ignored while file reading.
+# Пустые строки '' или символы новой строки '\n' игнорируются при считывании файла.
+
+# [not_interesting_parts] and [not_interesting_tails] are the names of lists of strings you don't want to see in output file. If URL contains one of these strings it skips.
+# [not_interesting_parts] и [not_interesting_tails] - это названия списков тех частей строк или их окончаний, которые Вас не интересуют и не нужны Вам в отфильтрованном файле. Если URL-ссылка содержит в себе часть строки или окончание из этих списков, то она пропускается и не попадает в отфильтрованный файл. 
+
+# [interesting_parts] and [interesting_tails] are the names of lists of strings you're interested in. 
+# [interesting_parts] и [interesting_tails] - это названия списков тех частей строк или их окончаний, которые Вы ищите.
+
+# Each URL is checking for NOT interesting parts and tails first. If it doesn't contain any of such strings, it goes farther. If URL contains any of interesting parts or tails, it goes to file 'xxxxx_interesting', other way - to file 'xxxxx_suspicious'.
+# Каждая URL-ссылка сначала проверяется на наличие в ней частей строк или их окончаний, которые Вас НЕ интересуют. Только если она их не содержит, такая ссылка проходит следующую проверку. Если URL-ссылка содержит часть строки или окончание из тех, что Вы ищите, она будет сохранена в файле с именем вида 'xxxxx_interesting', в противном случае она будет считаться подозрительной и будет сохранена в файле с именем вида 'xxxxx_suspicious'.
+
+# Do not change the names of lists. Change it's items if you need.
+# Не изменяйте названия списков. Менйте только их содержимое, если это необходимо.
+
+[interesting_parts]
+abcd
+
+[interesting_tails]
+
+[not_interesting_parts]
+[not_interesting_tails]
+123
+321
+cda
